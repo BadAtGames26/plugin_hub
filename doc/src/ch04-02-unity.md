@@ -30,7 +30,7 @@ The `call_original!()` is another macro, it calls the original function, so this
 From Offset is another method to access the game's functions. It is called in the same way as a hook, `#[unity::from_offset()]` and the inputs of the function are the same as hook, using the symbol's name. This allows us to access a function without needing to use the call original macro. One caveat to this, is that calling this function would require an unsafe block. The example below shows how the from_offset macro can be used:
 
 ```rs
-#[unity::hook("App", "Unit", "GetJobName")]
+#[unity::from_offset("App", "Unit", "GetJobName")]
 pub fn unit_getjobname(this: &Unit, method_info: OptionalMethod) -> &'static Il2CppString;
 ```
 
